@@ -9,6 +9,7 @@ function App() {
         <a
           href="https://github.com/duongni/weather-react"
           title="Link to github"
+          target="_blank"
         >
           Open-source Code
         </a>{" "}
