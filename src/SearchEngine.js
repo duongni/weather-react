@@ -1,5 +1,4 @@
 import React from "react";
-import "./SearchEngine.css";
 
 export default function SearchEngine() {
   return (
@@ -11,7 +10,7 @@ export default function SearchEngine() {
         <div className="city-weather">
           <h2>New York</h2>
           <h1>60°F</h1>
-          <img src="" alt="weather icon" />
+          <img src="./broken-clouds-day-01.png" alt="" />
           <h3>Clouds</h3>
         </div>
         <div className="weather-details">

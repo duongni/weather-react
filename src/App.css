@@ -40,6 +40,14 @@ p {
   font-size: 15px;
   font-weight: 300;
 }
+a {
+  color: #5e1936;
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  background: white;
+}
 .App {
   width: 100%;
   height: 100vh;

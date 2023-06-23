@@ -5,7 +5,15 @@ function App() {
     <div className="App">
       <SearchEngine />
 
-      <div className="footer">Open-source Code by Ni D.</div>
+      <div className="footer">
+        <a
+          href="https://github.com/duongni/weather-react"
+          title="Link to github"
+        >
+          Open-source Code
+        </a>{" "}
+        by Ni D.
+      </div>
     </div>
   );
 }
