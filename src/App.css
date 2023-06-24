@@ -48,6 +48,7 @@ h4 {
 p {
   font-size: 15px;
   font-weight: 300;
+  margin-bottom: 0;
 }
 a {
   color: #5e1936;
@@ -56,6 +57,9 @@ a {
 img {
   width: 100%;
   background: white;
+}
+.weather-icon {
+  width: 20%;
 }
 .App {
   width: 100%;
