@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Weather from "./Weather";
 
 export default function SearchEngine(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({ ready: false });
   function handleResponse(response) {
     console.log(response.data);
@@ -16,44 +18,32 @@ export default function SearchEngine(props) {
       description: response.data.weather[0].description,
     });
   }
+
+  function handleSearch(event) {
+    event.preventDefault();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.city);
+  }
   if (weather.ready) {
     return (
       <div>
-        <form className="search">
-          <input type="search" placeholder="enter a city" autoFocus="on" />
+        <form className="search" onSubmit={handleSearch}>
+          <input
+            type="search"
+            placeholder="enter a city"
+            autoFocus="on"
+            onChange={handleCityChange}
+          />
         </form>
-        <div className="container">
-          <div className="city-weather">
-            <h2>{weather.city}</h2>
-            <h1>{Math.round(weather.temp)}°F</h1>
-            <img
-              src={weather.iconURL}
-              alt="{weather.description}"
-              className="weather-icon"
-            />
-            <h3 className="text-capitalize">{weather.description}</h3>
-          </div>
-          <div className="weather-details">
-            <div>
-              <h4>{Math.round(weather.feel)}°F</h4>
-              <p>Feels Like</p>
-            </div>
-            <div>
-              <h4>{weather.humidity}%</h4>
-              <p>Humidity</p>
-            </div>
-            <div>
-              <h4>{Math.round(weather.wind)}MPH</h4>
-              <p>Wind Speed</p>
-            </div>
-          </div>
-        </div>
+        <Weather info={weather} />
       </div>
     );
   } else {
     const apiKey = "3bc520cc14bbdedfd7e45158f2ef0439";
     const unit = "imperial";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=${unit}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
 
     axios.get(apiUrl).then(handleResponse);
 
