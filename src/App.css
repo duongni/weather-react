@@ -90,11 +90,11 @@ img {
 }
 .container {
   width: 400px;
-  height: 550px;
+  height: 500px;
   position: relative;
   margin: 0 auto;
   margin-top: 240px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -107,4 +107,8 @@ img {
   padding: 13px 40px;
   border: 1 solid #ffffff;
   border-radius: 10px;
+}
+.date {
+  text-align: center;
+  font-size: 10px;
 }

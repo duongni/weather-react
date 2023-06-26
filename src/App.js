@@ -4,7 +4,7 @@ import SearchEngine from "./SearchEngine";
 function App() {
   return (
     <div className="App">
-      <SearchEngine defaultCity="Bloomfield" />
+      <SearchEngine defaultCity="Seattle" />
 
       <div className="footer">
         <a
@@ -13,8 +13,8 @@ function App() {
           target="_blank"
           rel="noreferrer"
         >
-          Open-source Code
-        </a>{" "}
+          Open-sourced Code
+        </a>
         by Ni D.
       </div>
     </div>

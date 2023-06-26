@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+
 import Weather from "./Weather";
 
 export default function SearchEngine(props) {
@@ -16,15 +17,24 @@ export default function SearchEngine(props) {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
+      date: new Date(response.data.dt * 1000),
     });
   }
 
+  function search() {
+    const apiKey = "3bc520cc14bbdedfd7e45158f2ef0439";
+    const unit = "imperial";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }
   function handleSearch(event) {
     event.preventDefault();
+    search();
   }
 
   function handleCityChange(event) {
-    setCity(event.target.city);
+    setCity(event.target.value);
   }
   if (weather.ready) {
     return (
@@ -41,12 +51,7 @@ export default function SearchEngine(props) {
       </div>
     );
   } else {
-    const apiKey = "3bc520cc14bbdedfd7e45158f2ef0439";
-    const unit = "imperial";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return "Loading...";
   }
 }
