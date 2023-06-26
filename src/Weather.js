@@ -9,11 +9,8 @@ export default function Weather(props) {
           <h2>{props.info.city}</h2>
 
           <h1>{Math.round(props.info.temp)}°F</h1>
-          <img
-            src={props.info.iconURL}
-            alt="{props.info.weather.description}"
-            className="weather-icon"
-          />
+
+          <i className={`wi wi-owm-${props.info.icon}`}></i>
 
           <h3 className="text-capitalize">{props.info.description}</h3>
         </div>

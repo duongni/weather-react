@@ -7,7 +7,6 @@ export default function SearchEngine(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({ ready: false });
   function handleResponse(response) {
-    console.log(response.data);
     setWeather({
       ready: true,
       temp: response.data.main.temp,
@@ -18,6 +17,7 @@ export default function SearchEngine(props) {
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
+      icon: response.data.weather[0].id,
     });
   }
 
