@@ -29,7 +29,6 @@ export default function Weather(props) {
         </div>
       </div>
       <p className="date">
-        Updated on:
         <FormattedDate date={props.info.date} />
       </p>
     </div>
