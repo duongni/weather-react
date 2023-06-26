@@ -6,11 +6,10 @@ export default function Weather(props) {
     <div>
       <div className="container">
         <div className="city-weather">
+          <i className={`wi wi-owm-${props.info.icon} mb-3`}></i>
           <h2>{props.info.city}</h2>
 
           <h1>{Math.round(props.info.temp)}°F</h1>
-
-          <i className={`wi wi-owm-${props.info.icon}`}></i>
 
           <h3 className="text-capitalize">{props.info.description}</h3>
         </div>
