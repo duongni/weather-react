@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import WeatherForecast from "./WeatherForecast";
 import Weather from "./Weather";
 
 export default function SearchEngine(props) {
@@ -48,6 +48,7 @@ export default function SearchEngine(props) {
           />
         </form>
         <Weather info={weather} />
+        <WeatherForecast />
       </div>
     );
   } else {
