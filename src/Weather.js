@@ -3,7 +3,7 @@ import FormattedDate from "./FormattedDate";
 
 export default function Weather(props) {
   return (
-    <div>
+    <div className="Weather">
       <div className="container">
         <div className="city-weather">
           <i className={`wi wi-owm-${props.info.icon} mb-3`}></i>

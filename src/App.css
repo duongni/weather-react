@@ -130,7 +130,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .ForecastDate .wi {
@@ -154,5 +154,13 @@ img {
   }
   .WeatherForecast {
     width: 300px;
+    flex-wrap: wrap;
+    align-content: flex-end;
+  }
+  .ForecastDate {
+    padding: 5px;
+  }
+  .WeatherForecast p {
+    font-size: 12px;
   }
 }
