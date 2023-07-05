@@ -11,7 +11,7 @@ export default function SearchEngine(props) {
       ready: true,
       temp: response.data.main.temp,
       city: response.data.name,
-      iconURL: "https://openweathermap.org/img/wn/10d@2x.png",
+      coord: response.data.coord,
       feel: response.data.main.feels_like,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
