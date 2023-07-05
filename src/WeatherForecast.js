@@ -1,54 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import ForecastFormattedDate from "./ForecastFormattedDate";
 import axios from "axios";
 
 export default function WeatherForecast(props) {
-  function handleResponse(data) {
-    console.log(data);
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+  function handleResponse(response) {
+    setForecast(response.data.list);
+    setLoaded(true);
   }
-  const apiKey = "3bc520cc14bbdedfd7e45158f2ef0439";
-  const unit = "imperial";
-  const lat = props.data.coord.lat;
-  const lon = props.data.coord.lon;
-  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(handleResponse);
 
-  return (
-    <div className="WeatherForecast">
-      <div className="ForecastDate">
-        <p>Date</p>
-        <i className={`wi wi-owm-${props.data.icon} mb-3`}></i>
-        <p>
-          80° <span>60°</span>
-        </p>
+  if (loaded) {
+    console.log(forecast);
+    return (
+      <div className="WeatherForecast">
+        <ForecastFormattedDate data={forecast[1]} />
       </div>
-      <div className="ForecastDate">
-        <p>Date</p>
-        <i className={`wi wi-owm-${props.data.icon} mb-3`}></i>
-        <p>
-          80° |<span> 60°</span>
-        </p>
-      </div>
-      <div className="ForecastDate">
-        <p>Date</p>
-        <i className={`wi wi-owm-${props.data.icon} mb-3`}></i>
-        <p>
-          80° |<span> 60°</span>
-        </p>
-      </div>
-      <div className="ForecastDate">
-        <p>Date</p>
-        <i className={`wi wi-owm-${props.data.icon} mb-3`}></i>
-        <p>
-          80° |<span> 60°</span>
-        </p>
-      </div>
-      <div className="ForecastDate">
-        <p>Date</p>
-        <i className={`wi wi-owm-${props.data.icon} mb-3`}></i>
-        <p>
-          80° |<span> 60°</span>
-        </p>
-      </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = "3bc520cc14bbdedfd7e45158f2ef0439";
+    const unit = "imperial";
+    const lat = props.data.coord.lat;
+    const lon = props.data.coord.lon;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return null;
+  }
 }
