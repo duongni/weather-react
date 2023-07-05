@@ -6,6 +6,7 @@ export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
   function handleResponse(response) {
+    console.log(response);
     setForecast(response.data.list);
     setLoaded(true);
   }
@@ -17,6 +18,7 @@ export default function WeatherForecast(props) {
           if (index < 5) {
             return (
               <div key={index}>
+                {index}
                 <ForecastFormattedDate data={dailyForecast} />
               </div>
             );
