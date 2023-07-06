@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherForecast from "./WeatherForecast";
 import Weather from "./Weather";
+import { cleanup } from "@testing-library/react";
 
 export default function SearchEngine(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({ ready: false });
+
   function handleResponse(response) {
     setWeather({
       ready: true,
@@ -48,7 +50,7 @@ export default function SearchEngine(props) {
           />
         </form>
         <Weather info={weather} />
-        <WeatherForecast data={weather} />
+        <WeatherForecast data={weather.coord} />
       </div>
     );
   } else {
