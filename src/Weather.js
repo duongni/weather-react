@@ -28,10 +28,11 @@ export default function Weather(props) {
           </div>
         </div>
       </div>
-
-      <p className="date">
-        <FormattedDate date={props.info.date} />
-      </p>
+      <div>
+        <p className="date">
+          <FormattedDate date={props.info.date} />
+        </p>
+      </div>
     </div>
   );
 }
