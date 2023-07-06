@@ -18,11 +18,11 @@ export default function ForecastFormattedDate(props) {
   return (
     <div className="ForecastFormattedDate">
       <div className="ForecastDate">
-        <p>{day()}</p>
+        <div>{day()}</div>
         <i className={`wi wi-owm-${props.data.weather[0].id} mb-3`}></i>
-        <p className="forecast-temp">
+        <div className="forecast-temp">
           {maxTemp()}° <span>{minTemp()}°</span>
-        </p>
+        </div>
       </div>
     </div>
   );

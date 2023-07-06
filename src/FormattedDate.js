@@ -22,7 +22,9 @@ export default function FormattedDate(props) {
 
   return (
     <div className="footer">
-      Updated on: {day} {month} {date}
+      <div>
+        Updated on: {day} {month} {date}
+      </div>
       <div>
         <a
           href="https://github.com/duongni/weather-react"
@@ -30,7 +32,7 @@ export default function FormattedDate(props) {
           target="_blank"
           rel="noreferrer"
         >
-          Open-sourced Code
+          Open-sourced Code{" "}
         </a>
         by Ni D.
       </div>
