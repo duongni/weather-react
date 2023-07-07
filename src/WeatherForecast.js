@@ -24,10 +24,11 @@ export default function WeatherForecast(props) {
           if (index < 5) {
             return (
               <div key={index}>
-                {index}
                 <ForecastFormattedDate data={dailyForecast} />
               </div>
             );
+          } else {
+            return <></>;
           }
         })}
       </div>

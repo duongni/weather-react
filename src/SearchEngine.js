@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherForecast from "./WeatherForecast";
 import Weather from "./Weather";
-import { cleanup } from "@testing-library/react";
 
 export default function SearchEngine(props) {
   const [city, setCity] = useState(props.defaultCity);
