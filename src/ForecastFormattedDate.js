@@ -2,11 +2,11 @@ import React from "react";
 
 export default function ForecastFormattedDate(props) {
   function maxTemp() {
-    let maxTemp = Math.round(props.data.main.temp_max);
+    let maxTemp = Math.round(props.data.temp.max);
     return `${maxTemp}`;
   }
   function minTemp() {
-    let minTemp = Math.round(props.data.main.temp_min);
+    let minTemp = Math.round(props.data.temp.min);
     return `${minTemp}`;
   }
   function day() {
